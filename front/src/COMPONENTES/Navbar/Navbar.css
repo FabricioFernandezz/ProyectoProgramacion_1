@@ -1,0 +1,22 @@
+.login{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login:hover {
+    background-color: #d2bff7;
+  }
+  .Home {
+    display: felx;
+    align-items: center; 
+    justify-content: center;
+  }
+  
