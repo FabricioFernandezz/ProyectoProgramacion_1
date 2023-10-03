@@ -1,45 +1,74 @@
-// import React from 'react'
 
-// export default function Navbar  ()  {
-//   return (
-//     <div>
-//         <nav className="navbar navbar-dark bg-dark">
-//   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-//     <span className="navbar-toggler-icon"></span>
-//   </button>
-//   <a className="navbar-brand" href="https://www.linkedin.com/feed/">X</a>
-
-// </nav>
-//     </div>
-//   )
-// }
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
+import { useContext } from "react";
+import { UserContext } from "../../CONTEXT/UserContext";
 import './Navbar.css'
+export const Navbar = () => {
+    const { user,setUser } = useContext(UserContext);
+    const handleLogOut = () => {
+        setUser(false)
+        console.log('salir')
+    }
 
-export default function Navbar() {
-  return (
-    <div>
-      <nav className="navbar navbar-dark bg-dark">
-        <Link to="/login">
-          <button className="login">
-            <span> Login </span>
-          </button>
-        </Link>
-        
-        <Link to="/">
-          <button className="login">
-            <span> 🏠 </span>
-          </button>
-        </Link>
-      
-        <Link to="/register">
-          <button className="login">
-            <span> Register </span>
-          </button>
-        </Link>
-      </nav>
-    </div>
-    
-  );
+    return (
+        <div>
+            <div class="header_section">
+                <div class="container">
+                    <nav className="navbar navbar-expand-lg navbar-light" data-bs-theme="dark">
+                        <a className="navbar-braknd" href="/#" > </a> 
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                            {
+                                //administrador
+                                user.role === '1' ? (
+                                    <ul className="navbar-nav ms-auto">
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/dashboard">Dashboard</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/userList">Usuarios registrados</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/offers">Ofertas creadas</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/" onClick={handleLogOut} >Salir</Link>
+                                        </li>
+                                    </ul>
+                                //usuario
+                                ) : user.role === '2' ? (
+                                    <ul className="navbar-nav ms-auto">
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/offers">Ofertas</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/myApplications">Mis postulaciones</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/" onClick={handleLogOut} >Salir</Link>
+                                        </li>
+                                    </ul>
+                                ):(
+                                    <ul className="navbar-nav ms-auto">
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/home">Home</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" exact='true' to="/login">Login</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/register">Registro</Link>
+                                        </li>
+                                    </ul>
+                                ) 
+                            }           
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    )
 }

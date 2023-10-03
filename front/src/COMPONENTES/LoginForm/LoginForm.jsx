@@ -1,7 +1,9 @@
 import { Field, Form, Formik } from "formik";
 import React from "react";
 import axios from "axios";
-import "./LoginForm.css"
+import "./LoginForm.css";
+import {UserContext} from "../../CONTEXT/UserContext";
+import { useContext } from "react";
 
 export const LoginForm = () => {
   const initialValues = {
@@ -9,11 +11,14 @@ export const LoginForm = () => {
     password: "",
   };
 
+  const { setUser } = useContext(UserContext);
+
   const handleForm = async (values) => {
     console.log("values:", values);
     try {
       const response = await axios.post("http://localhost:5000/auth/login", values);
       console.log(response.data);
+      setUser(true);
     } catch (error) {
       console.log(error);
     }

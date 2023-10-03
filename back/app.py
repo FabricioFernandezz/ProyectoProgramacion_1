@@ -5,7 +5,6 @@ from database import *
 from resources.auth.routes import auth
 
 
-
 app = Flask(__name__) 
 CORS(app)  
 
@@ -19,10 +18,10 @@ migrate.init_app(app, db)
 
 app.register_blueprint(auth)
 
-@app.route('/')
-def home():
-    print('home')
-    return jsonify({'mensaje': 'Home'})
+# @app.route('/')
+# def home():
+#     print('home')
+#     return jsonify({'mensaje': 'Home'})
 
 
 if __name__ == '__main__':

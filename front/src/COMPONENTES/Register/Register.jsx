@@ -1,12 +1,16 @@
 import { Field, Form, Formik } from "formik";
 import React from "react";
 import axios from "axios";
+import { useContext } from "react";
+import {UserContext} from "../../CONTEXT/UserContext";
+import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
+  const { setUser } = useContext(UserContext);
+  const navigate = useNavigate();
   const initialValues = {
     email: "",
     password: "",
-    confirmPassword: "",
   };
 
   const handleForm = async (values) => {
@@ -14,6 +18,15 @@ export const Register = () => {
     try {
       const response = await axios.post("http://localhost:5000/auth/register", values);
       console.log(response.data);
+      const {role} = response.data
+      console.log('role:', role)
+      
+      setUser({
+        logged: true,
+        role: role,
+      })
+      
+      navigate('/')
     } catch (error) {
       console.log(error);
     }
