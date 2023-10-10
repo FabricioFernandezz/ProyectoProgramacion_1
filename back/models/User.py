@@ -13,4 +13,4 @@ class User(db.Model):
             f'password: {self.password}, '
             f'role: {self.role}'
         )
-        
+       

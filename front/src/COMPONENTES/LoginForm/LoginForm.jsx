@@ -18,7 +18,12 @@ export const LoginForm = () => {
     try {
       const response = await axios.post("http://localhost:5000/auth/login", values);
       console.log(response.data);
-      setUser(true);
+      const {role} = response.data
+      console.log('role:', role)
+      setUser({
+        logged: true,
+        role: role,
+      });
     } catch (error) {
       console.log(error);
     }

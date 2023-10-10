@@ -26,9 +26,6 @@ export const Navbar = () => {
                                 user.role === '1' ? (
                                     <ul className="navbar-nav ms-auto">
                                         <li className="nav-item">
-                                            <Link className="nav-link" to="/dashboard">Dashboard</Link>
-                                        </li>
-                                        <li className="nav-item">
                                             <Link className="nav-link" to="/userList">Usuarios registrados</Link>
                                         </li>
                                         <li className="nav-item">
@@ -42,10 +39,10 @@ export const Navbar = () => {
                                 ) : user.role === '2' ? (
                                     <ul className="navbar-nav ms-auto">
                                         <li className="nav-item">
-                                            <Link className="nav-link" to="/offers">Ofertas</Link>
+                                            <Link className="nav-link" to="/offers">Carrito</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link className="nav-link" to="/myApplications">Mis postulaciones</Link>
+                                            <Link className="nav-link" to="/perfil">Perfil</Link>
                                         </li>
                                         <li className="nav-item">
                                             <Link className="nav-link" to="/" onClick={handleLogOut} >Salir</Link>
