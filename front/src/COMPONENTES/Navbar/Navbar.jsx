@@ -26,10 +26,16 @@ export const Navbar = () => {
                                 user.role === '1' ? (
                                     <ul className="navbar-nav ms-auto">
                                         <li className="nav-item">
-                                            <Link className="nav-link" to="/userList">Usuarios registrados</Link>
+                                            <Link className="nav-link" to="/userList">Lista de Usuarios</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link className="nav-link" to="/offers">Ofertas creadas</Link>
+                                            <Link className="nav-link" to="/Offers">Ofertas creadas</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/AddProduct">Crear Oferta</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/Home">Home</Link>
                                         </li>
                                         <li className="nav-item">
                                             <Link className="nav-link" to="/" onClick={handleLogOut} >Salir</Link>
@@ -39,11 +45,15 @@ export const Navbar = () => {
                                 ) : user.role === '2' ? (
                                     <ul className="navbar-nav ms-auto">
                                         <li className="nav-item">
-                                            <Link className="nav-link" to="/offers">Carrito</Link>
+                                            <Link className="nav-link" to="/Profile">Perfil</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link className="nav-link" to="/perfil">Perfil</Link>
+                                            <Link className="nav-link" to="/Offers">Comprar Vino</Link>
                                         </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/Home">Home</Link>
+                                        </li>
+                                        
                                         <li className="nav-item">
                                             <Link className="nav-link" to="/" onClick={handleLogOut} >Salir</Link>
                                         </li>
@@ -58,6 +68,7 @@ export const Navbar = () => {
                                         </li>
                                         <li className="nav-item">
                                             <Link className="nav-link" to="/register">Registro</Link>
+                                            
                                         </li>
                                     </ul>
                                 ) 

@@ -4,8 +4,12 @@ import axios from "axios";
 import "./LoginForm.css";
 import {UserContext} from "../../CONTEXT/UserContext";
 import { useContext } from "react";
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
+
 
 export const LoginForm = () => {
+  const navigate = useNavigate();
   const initialValues = {
     email: "",
     password: "",
@@ -20,10 +24,17 @@ export const LoginForm = () => {
       console.log(response.data);
       const {role} = response.data
       console.log('role:', role)
+      Swal.fire({
+        icon: 'success',
+        title: 'Inicio de sesion correcto',
+        showConfirmButton: false,
+        timer: 1800
+      })
       setUser({
         logged: true,
         role: role,
       });
+      navigate('/Home')
     } catch (error) {
       console.log(error);
     }

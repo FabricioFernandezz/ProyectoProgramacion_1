@@ -34,3 +34,4 @@ class Product_list(Resource):
         response = jsonify(result)
         response.status_code = 200
         return response
+    
