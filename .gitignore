@@ -1,0 +1,8 @@
+#ignorar carpetas y archivos
+back/venv/
+
+back/migrations/
+
+back/_pycache_/
+
+back/database.py

@@ -42,22 +42,22 @@ export const LoginForm = () => {
   
   
   return (
-    <div>
+    <div className="fondo_login">
       <div className="row justify-content-center">
         <div className="col-md-6">
           <br />
-          <h1>Inicio de sesion</h1>
+          <h1 className="title">Inicio de sesion</h1>
           <Formik initialValues={initialValues} onSubmit={handleForm}>
             <Form>
               <div className="form-floating">
-                <Field
+                <Field 
                   type="email"
                   className="form-control"
                   id="floatingInput"
                   placeholder="name@example.com"
                   name="email"
                 />
-                <label htmlFor="floatingInput">Email address</label>
+                <label className="label_email" htmlFor="floatingInput">Email address</label>
               </div>
               <div className="form-floating">
                 <Field
@@ -67,11 +67,11 @@ export const LoginForm = () => {
                   placeholder="Password"
                   name="password"
                 />
-                <label htmlFor="floatingPassword">Password</label>
+                <label className="label_password" htmlFor="floatingPassword">Password</label>
               </div>
 
               <button
-                className="btn btn-primary w-100 py-2"
+                className="button_login"
                 type="submit"
                 onClick={handleForm}
               >
